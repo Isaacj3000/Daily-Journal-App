@@ -1,6 +1,12 @@
 [
     {
+        "id": "entry-001",
         "date": "2025-06-22 23:14",
         "content": "Good Evening, i had a very long day today. what did i do?! im glad you asked!\r\nAbsolutely NOTHING"
+    },
+    {
+        "id": "entry-002",
+        "date": "2025-08-14 00:10 (edited)",
+        "content": "Okay, it is \"I\"\r\nIsaac the magnificent.\r\nsomething is bothering me, i want work as a software engineer but ive been slacking on creating more projects.\r\nso my goal right now is to make sure i finally finish this app."
     }
 ]

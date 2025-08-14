@@ -141,6 +141,48 @@
             font-size: 1.1em;
         }
 
+        .entry-actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .entry:hover .entry-actions {
+            opacity: 1;
+        }
+
+        .btn-small {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-small:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-edit {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+
+        .btn-delete {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        }
+
+        .btn-delete:hover {
+            box-shadow: 0 3px 10px rgba(220, 53, 69, 0.3);
+        }
+
         .no-entries {
             text-align: center;
             color: #6c757d;
@@ -202,6 +244,12 @@
                     <div class="entry">
                         <div class="entry-date">{{ entry.date }}</div>
                         <div class="entry-content">{{ entry.content }}</div>
+                        <div class="entry-actions">
+                            <a href="{{ url_for('edit_entry', entry_id=entry.id) }}" class="btn-small btn-edit">✏️ Edit</a>
+                            <form method="POST" action="{{ url_for('delete_entry', entry_id=entry.id) }}" style="display: inline;">
+                                <button type="submit" class="btn-small btn-delete" onclick="return confirm('Are you sure you want to delete this entry? This action cannot be undone.');">🗑️ Delete</button>
+                            </form>
+                        </div>
                     </div>
                     {% endfor %}
                 {% else %}
